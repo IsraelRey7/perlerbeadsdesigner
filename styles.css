@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Evita desplazamiento innecesario */
+  position: relative; /* Asegura que el contenedor padre esté posicionado */
+  display: flex;
+  flex-direction: row; /* Asegura que los hijos se alinean horizontalmente */
+  justify-content: center; /* Centra los hijos horizontalmente */
+  flex-wrap: nowrap; /* Evitar que los elementos se muevan a la siguiente línea */
+}
+
+#screenCanvas {
+  position: fixed; /* Cambiado a fixed para asegurar cobertura completa */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #CCCCCC;
+  z-index: 1; /* Asegura que sea la capa base */
+}
+
+.sidePanel {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 300px;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #F0F0F0;
+  z-index: 2; /* Asegura que los paneles estén por encima del canvas */
+  overflow-y: auto; /* Para scroll si hay muchos elementos */
+}
+
+#leftPanel {
+  left: 0;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+#rightPanel {
+  right: 0;
+}
+
+.buttonRow, .autoDropdown {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centra los elementos horizontalmente */
+  margin-bottom: 10px;
+}
+
+.buttonRowTitle, .autoDropdownTitle {
+  margin-bottom: 10px; /* Espacio entre el título y los botones */
+  color: #555555; /* Cambia el color del texto */
+  font-size: 1em; /* Cambia el tamaño del texto */
+  font-weight: bold; /* Hace que el texto sea negrita */
+  text-align: center; /* Centra el texto */
+}
+
+.buttonsContainer1, .buttonsContainer2, .buttonsContainer3, .buttonsContainer4, .buttonsContainer5 {
+  display: flex;
+  justify-content: center; /* Alinea los botones horizontalmente en el centro */
+  flex-wrap: wrap; /* Permite que los botones se envuelvan en múltiples líneas si no hay suficiente espacio */
+  margin-bottom: 0px;
+}
+
+.button1, .button2, .button3, .button4, .button5, .button6, .button7, .button8, .button9 {
+  background: #F7F7F7;
+  border: 1px solid #555555;
+  border-radius: 32px;
+  height: 50px;
+  padding: 10px 10px; /* Ajusta el relleno según sea necesario */
+  outline: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: #555555;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0px 3px;
+  margin-bottom: 0px;
+}
+
+.button2, .button5, .button6 {
+  width: 80px;
+}
+
+.button3 {
+  width: 80%;
+}
+
+.button4 {
+  width: 180px;
+}
+
+.button7 {
+  width: 100px;
+}
+
+.button8 {
+  width: 130px;
+}
+
+/* Para asegurarse de que no haya margen a la derecha del último botón en una fila */
+.button:last-child {
+  margin-right: 0;
+}
+
+#colorButton {
+  margin-top: 0;
+}
+
+.colorOption {
+  height: 60px; /* Set the same height as the button */
+  margin-bottom: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: semibold;
+  cursor: pointer; /* Esto asegura que el cursor sea una manita */
+}
+
+/* Make the scrollbar almost transparent */
+#colorPalette::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#colorPalette::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#colorPalette {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  display: none;
+  max-height: 452px;
+  overflow-y: auto;
+  width: 100%;
+  border-radius: 32px; /* Add rounded corners to the dropdown window */
+}
