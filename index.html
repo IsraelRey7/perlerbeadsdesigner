@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perler Beads Designer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="screenCanvas"></canvas>
+    <div id="leftPanel" class="sidePanel">
+        <div id="beadTypeButtons" class="buttonRow">
+            <h5 class="buttonRowTitle">Tamaño de Bead</h5>
+            <div class="buttonsContainer1">
+                <button data-bead-size="MINI" class="button1" type="button">MINI</button>
+                <button data-bead-size="MIDI" class="button1" class="selected" type="button">MIDI</button>
+                <button data-bead-size="MAXI" class="button1" type="button">MAXI</button>
+            </div>
+        </div>
+        <div id="pegboardTypeButtons" class="buttonRow">
+            <h5 class="buttonRowTitle">Tipo de Placa</h5>
+            <div class="buttonsContainer2">
+                <button data-pegboard-type="Square" class="button2" class="selected" type="button">Cuadrada</button>
+                <button data-pegboard-type="Circle" class="button2" type="button">Cirular</button>
+                <button data-pegboard-type="Hexagon" class="button2" type="button">Hexagonal</button>
+            </div>
+        </div>
+        <div class="autoDropdown">
+            <h5 class="buttonRowTitle">Tamaño de Placa</h5>
+            <select id="pegboardSizeSelect">
+                <!-- Las opciones se llenarán dinámicamente -->
+            </select>
+        </div>
+        <div id="addremovePegboard" class="buttonRow">
+            <h5 class="buttonRowTitle">Añadir/Quitar Placas</h5>
+            <button id="customizeCanvas" class="button4" type="button">Personalizar Dimensiones</button>
+        </div>
+        <div id="img2bead" class="buttonRow">
+            <h5 class="buttonRowTitle">Crear Diseño desde Imagen</h5>
+            <button id="imageTransformer" class="button4" type="button">Transformar Imagen</button>
+        </div>
+        <div id="designTemplateCreator" class="buttonRow">
+            <h5 class="buttonRowTitle">Crear Plantilla desde Diseño</h5>
+            <button id="templateCreator" class="button4" type="button">Crear Plantilla</button>
+        </div>
+        <div id="ironImitator" class="buttonRow">
+            <h5 class="buttonRowTitle">Imitar Planchado del Diseño</h5>
+            <button id="ironDesign" class="button4" type="button">Planchar Diseño</button>
+        </div>
+    </div>
+    <div id="rightPanel" class="sidePanel">
+        <div id="undoredo" class="buttonRow">
+            <h5 class="buttonRowTitle">Deshacer/Rehacer</h5>
+            <div class="buttonsContainer3">
+                <button id="undo" class="button5" type="button">Undo</button>
+                <button id="maxi" class="button5" type="button">Redo</button>
+            </div>
+        </div>
+        <div id="beadColor" class="buttonRow">
+            <h5 class="buttonRowTitle">Color del Bead</h5>
+            <button id="colorButton" class="button6" type="button">Color</button>
+            <div id="colorPalette1" style="display:none;"></div>
+        </div>
+            <h5 class="buttonRowTitle">Cambiar Color Usado</h5>
+            <div class="buttonsContainer4">
+                <button id="usedColor" class="button7" type="button">Color Usado</button>
+                <div id="colorPalette2" style="display:none;"></div>
+                <button id="newColor" class="button7" type="button">Color Nuevo</button>
+                <div id="colorPalette3" style="display:none;"></div>
+            </div>
+        <div id="clearEverything" class="buttonRow">
+            <h5 class="buttonRowTitle">Borrar Todo</h5>
+            <button id="cleanCanvas" class="button8" type="button">Limpiar Placa</button>
+        </div>
+        <div id="downloadDesign" class="buttonRow">
+            <h5 class="buttonRowTitle">Descargar Diseño</h5>
+            <button id="exportImage" class="button8" type="button">Exportar Imagen</button>
+        </div>
+        <div id="pattern" class="buttonRow">
+            <h5 class="buttonRowTitle">Importar / Exportar Patrones</h5>
+            <div class="buttonsContainer5">
+                <button id="importPattern" class="button9" type="button">Importar Patrón</button>
+                <div id="colorPalette2" style="display:none;"></div>
+                <button id="exportPattern" class="button9" type="button">Exportar Patrón</button>
+                <div id="colorPalette3" style="display:none;"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
