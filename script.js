@@ -144,7 +144,7 @@ function calculateHexRowLength(row, sideLength, totalRows) {
 }
 
 //. Tipo de Pegboard
-function updatePegboardSizeOptions() {
+function updatePegboardSizeOptions(ctx) {
     const sizeSelect = document.getElementById('pegboardSizeSelect'); // Asumiendo que tienes un <select> con este ID
     sizeSelect.innerHTML = ''; // Limpia las opciones existentes
 
@@ -162,7 +162,7 @@ function updatePegboardSizeOptions() {
     if (defaultOption) sizeSelect.value = "Placa MIDI Cuadrada 29x29";
 
     // Dibuja la placa por defecto
-    drawSelectedPegboard();
+    drawSelectedPegboard(ctx);
 }
 function drawSelectedPegboard(ctx) {
   const selectedPegboardName = document.getElementById('pegboardSizeSelect').value;
@@ -206,31 +206,16 @@ function drawPegboardPlatform(ctx, pegboards) {
 document.addEventListener('DOMContentLoaded', function() {
   const canvas = document.getElementById('screenCanvas');
   if (!canvas) {
-      console.error('Canvas no encontrado');
-      return;
+    console.error('Canvas no encontrado');
+    return;
   }
   const ctx = canvas.getContext('2d');
-  if (!ctx) {
-      console.error('No se pudo obtener el contexto del canvas');
-      return;
-  }
-
-  // Configura el tamaño del canvas y otros inicializadores aquí...
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  // Configura los manejadores de eventos aquí
-  setupEventHandlers();
-
-  // Dibuja el pegboard por defecto
-  updatePegboardSizeOptions(ctx);
+  // Llama aquí a las funciones de dibujo inicial
+  updatePegboardSizeOptions(ctx); // Asegúrate de que esta función y otras usen 'ctx' correctamente
 });
-
-function setupEventHandlers() {
-  document.getElementById('beadTypeButtons').addEventListener('click', handleBeadTypeSelection);
-  document.getElementById('pegboardTypeButtons').addEventListener('click', handlePegboardTypeSelection);
-  document.getElementById('pegboardSizeSelect').addEventListener('change', drawSelectedPegboard);
-}
 
 function handleBeadTypeSelection(e) {
   if (e.target.tagName === 'BUTTON') {
